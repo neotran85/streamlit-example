@@ -131,6 +131,7 @@ ax.legend()
 st.pyplot(fig)
 
 
+
 # Create a figure and axes object
 fig, ax = plt.subplots(figsize=(10, 10))
 
@@ -159,23 +160,6 @@ ax.set_title('Average Monthly Revenue per Customer by Marital Status')
 # Display the figure
 st.pyplot(fig)
 
-# Create a figure and axes object
-fig, ax = plt.subplots(3, 1, figsize=(10, 10))
-
-# Calculate the average number of product purchases by customer income
-average_num_purchases_by_income = data.groupby('Income')['NumDealsPurchases'].mean()
-
-# Create a bar chart of the average number of product purchases by customer income
-ax[2].bar(average_num_purchases_by_income.index, average_num_purchases_by_income)
-ax[2].set_xlabel('Customer Income')
-ax[2].set_ylabel('Average Number of Product Purchases')
-ax[2].set_title('Relationship Between Customer Income and Number of Product Purchases')
-
-# Adjust the layout of the subplots
-fig.tight_layout()
-
-# Display the figure
-st.pyplot(fig)
 
 # Display Japanese holidays
 st.subheader("Japanese Holidays for 2024:")
@@ -183,3 +167,4 @@ st.table(japanese_holidays.drop(columns=['lower_window', 'upper_window']))
 
 st.write("Displaying the entire dataset:")
 st.write(data)
+
