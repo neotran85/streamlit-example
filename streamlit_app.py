@@ -134,4 +134,7 @@ st.pyplot(fig)
 st.subheader("Japanese Holidays for 2024:")
 st.table(japanese_holidays.drop(columns=['lower_window', 'upper_window']))
 
+st.write("Displaying the entire dataset:")
+st.write(data)
+
 
