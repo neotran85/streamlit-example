@@ -19,9 +19,6 @@ from statsmodels.tsa.arima.model import ARIMA
 from prophet import Prophet
 
 import streamlit as st
-# [All other imports]
-
-# ...
 
 st.title("Forecasted Number of Customers Using Prophet with Japanese Holidays")
 
@@ -68,7 +65,6 @@ def drawPrediction(data):
         'prior_scale': prior_scales
     })
 
-    st.title("Forecasted Number of Customers Using Prophet with Japanese Holidays")
 
     # Load dataset
     months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
