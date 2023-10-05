@@ -130,11 +130,54 @@ ax.legend()
 
 st.pyplot(fig)
 
+# Create a figure and axes object
+fig, ax = plt.subplots(3, 1, figsize=(10, 10))
+
+# Create a scatter plot of the relationship between customer income and number of product purchases
+ax[2].scatter(data['Income'], data['NumDealsPurchases'])
+ax[2].set_xlabel('Customer Income')
+ax[2].set_ylabel('Number of Product Purchases')
+ax[2].set_title('Relationship Between Customer Income and Number of Product Purchases')
+
+# Adjust the layout of the subplots
+fig.tight_layout()
+
+# Display the figure
+st.pyplot(fig)
+
+# Create a figure and axes object
+fig, ax = plt.subplots(figsize=(10, 10))
+
+# Calculate the percentage of customers in each education level
+education_counts = data['Education'].value_counts()
+education_percentages = education_counts / education_counts.sum() * 100
+
+# Create a pie chart of the number of customers by education level
+ax.pie(education_percentages, labels=education_counts.index, autopct='%1.1f%%')
+ax.set_title('Number of Customers by Education Level')
+
+# Display the figure
+st.pyplot(fig)
+
+
+# Calculate the average monthly revenue per customer by marital status
+average_monthly_revenue_by_marital_status = data.groupby('Marital_Status')['MntWines'].mean()
+
+# Create a figure and axes object
+fig, ax = plt.subplots(figsize=(10, 10))
+
+# Create a pie chart of the average monthly revenue per customer by marital status
+ax.pie(average_monthly_revenue_by_marital_status, labels=average_monthly_revenue_by_marital_status.index, autopct='%1.1f%%')
+ax.set_title('Average Monthly Revenue per Customer by Marital Status')
+
+# Display the figure
+st.pyplot(fig)
+
+
+
 # Display Japanese holidays
 st.subheader("Japanese Holidays for 2024:")
 st.table(japanese_holidays.drop(columns=['lower_window', 'upper_window']))
 
 st.write("Displaying the entire dataset:")
 st.write(data)
-
-
